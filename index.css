@@ -1,0 +1,202 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    --bg-color: #282c34;
+    --text-color: white;
+    --highlight-color: #61dafb;
+    --button-color: #4c4e5a;
+    --table-color: #4c4e5a;
+    --competitor-color: rgb(49, 60, 72);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Cousine', monospace;
+}
+
+:focus {
+    outline: var(--highlight-color) auto 5px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--highlight-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+}
+
+label,
+caption {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+#wrapper>li {
+    position: absolute;
+}
+
+#header {
+    display: grid;
+    grid-area: header;
+    grid-template-areas: ". title button ";
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+#header>h1 {
+    grid-area: title;
+    text-align: center;
+}
+
+.fadeIn {
+    pointer-events: auto;
+    transition-delay: 0.5s;
+    opacity: 1;
+}
+
+.fadeOut {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.fadeIn,
+.fadeOut {
+    transition: opacity 0.5s;
+}
+
+#taskInput {
+    display: grid;
+    grid-template-areas:
+        ". description ."
+        ". . ."
+        ". input ."
+        ". . ."
+        ". button .";
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+}
+
+.taskInput__input {
+    grid-area: input;
+    margin: 0 auto;
+    width: min(100%, 500px);
+    height: 100px;
+    font-size: 16px;
+    background-color: transparent;
+    color: inherit;
+}
+
+button {
+    position: relative;
+    grid-area: button;
+    margin: 0 auto;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--button-color);
+    color: var(--text-color);
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+#taskBattle {
+    display: grid;
+    grid-template-areas:
+        ". description description ."
+        ". . . ."
+        ". button button-1 .";
+    grid-template-columns: 1fr auto auto 1fr;
+    grid-template-rows: 1fr 1fr auto;
+}
+
+#taskBattle>button {
+    height: 100px;
+    width: 150px;
+    background-color: var(--competitor-color);
+}
+
+#taskBattle>button:nth-of-type(2) {
+    grid-area: button-1;
+}
+
+table {
+    grid-area: table;
+}
+
+#taskResult {
+    display: grid;
+    grid-template-areas:
+        ". description ."
+        ". description-1 ."
+        ". description-2 ."
+        ". . ."
+        ". table .";
+    max-height: 500px;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr auto;
+}
+
+.taskResult__table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.taskResult__table td,
+th {
+    padding: 8px;
+    text-align: left;
+}
+
+.taskResult__table tr:hover {
+    filter: brightness(1.1);
+}
+
+.taskResult__table tr {
+    background-color: var(--table-color);
+}
+
+p {
+    color: var(--highlight-color);
+    width: max-content;
+    grid-area: description;
+}
+
+p:nth-of-type(2) {
+    grid-area: description-1;
+}
+
+p:nth-of-type(3) {
+    grid-area: description-2;
+}

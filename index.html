@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Task Battle is a simple web app that helps you determine the most important task on your to-do list."
+    />
+    <meta
+      name="keywords"
+      content="task, battle, importance, to-do, list, web, app"
+    />
+    <meta name="author" content="Frodi Karlsson" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Task Battle</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Task Battle</h1>
+      <button id="reset">Reset</button>
+    </div>
+    <ul id="wrapper">
+      <li id="taskInput">
+        <p>
+          Enter your tasks below and we'll help you determine the most important
+        </p>
+        <label for="taskTextInput">Tasks:</label>
+        <textarea
+          id="taskTextInput"
+          class="taskInput__input"
+          placeholder="Enter your tasks here"
+          rows="10"
+        ></textarea>
+        <button id="button">Enter</button>
+      </li>
+      <li class="fadeOut" id="taskBattle">
+        <p>Click on the task that you think is more important.</p>
+        <button id="taskCompetitorA">Competitor A</button>
+        <button id="taskCompetitorB">Competitor B</button>
+      </li>
+      <li class="fadeOut" id="taskResult">
+        <p>Here are the results of the task battle!</p>
+        <p>Tasks are sorted by score, with the highest score at the top.</p>
+        <p>Click the reset button to start over.</p>
+        <table id="taskResultTable" class="taskResult__table">
+          <caption>
+            Task Results
+          </caption>
+          <thead>
+            <th>Task</th>
+            <th>Score</th>
+          </thead>
+          <tbody id="taskResultTableBody">
+            <!-- Task results will be inserted here -->
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </body>
+</html>
